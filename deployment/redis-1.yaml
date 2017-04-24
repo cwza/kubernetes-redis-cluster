@@ -1,18 +1,18 @@
 apiVersion: extensions/v1beta1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: "redis-6"
+  name: "redis-1"
 spec:
   replicas: 1
   template:
     metadata:
       labels:
         app: redis
-        name: "redis-6"
+        name: "redis-1"
     spec:
       containers:
         - name: redis
-          image: "redis:3.2.0-alpine"
+          image: "redis:3.2.8"
           command:
             - "redis-server"
           args:
@@ -38,7 +38,7 @@ spec:
       volumes:
         - name: "redis-data"
           gcePersistentDisk:
-            pdName: "redis-6"
+            pdName: "redis-1"
             fsType: ext4
         - name: "redis-conf"
           configMap:

@@ -1,5 +1,5 @@
 apiVersion: extensions/v1beta1
-kind: ReplicaSet
+kind: Deployment
 metadata:
   name: "redis-5"
 spec:
@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: redis
-          image: "redis:3.2.0-alpine"
+          image: "redis:3.2.8"
           command:
             - "redis-server"
           args:
